@@ -52,7 +52,6 @@ class CustomProgressBar @JvmOverloads constructor(
     private lateinit var symbolPaint: Paint
     private lateinit var innerStrokedCirclePaint: Paint
 
-    @IntRange(from = 0, to = DEFAULT_MAX_SWEEP_ANGLE)
     private var mAnimatingSweepAngle: Int = 0
 
     // Load attributes
@@ -195,7 +194,7 @@ class CustomProgressBar @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val minimumSize = Math.min(widthMeasureSpec, heightMeasureSpec)
+        var minimumSize = Math.min(widthMeasureSpec, heightMeasureSpec)
         if (minimumSize <= 0) {
             val res = resources
             minimumSize = res.getDimensionPixelSize(R.dimen.progress_circle_h_w)
@@ -204,8 +203,8 @@ class CustomProgressBar @JvmOverloads constructor(
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
-        var width: Int
-        var height: Int
+        val width: Int
+        val height: Int
         // Measure Width
         width = when {
             widthMode == MeasureSpec.EXACTLY -> widthSize
@@ -461,7 +460,6 @@ class CustomProgressBar @JvmOverloads constructor(
         return paint
     }
 
-    @IntRange(from = 0, to = DEFAULT_MAX_SWEEP_ANGLE)
     fun getSweepAngle(): Int {
         return mAnimatingSweepAngle
     }

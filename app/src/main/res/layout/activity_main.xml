@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:progressbar="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.invozone.progress_button.CustomProgressBar
+        android:id="@+id/animated_cloud_progressbar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_small"
+        progressbar:download_icon="@drawable/ic_file_download_black_24dp"
+        progressbar:max="100"
+        progressbar:primary_progress_color="@color/progress_active"
+        progressbar:progress_background_color="@color/purple_500"
+        progressbar:secondary_progress_color="@color/progress_nonactive"
+        progressbar:show_percentage="false" />
+
+</RelativeLayout>
